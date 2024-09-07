@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Music Player</title>
+        <link href="style.css" rel="stylesheet" type="text/css" />
+    </head>
+
+    <body>
+        <div id="structure">
+            <div id="player">
+                <audio>
+                    <source src="HTML, CSS, JS\Music Player App\Bruno Mars - Just the Way You Are.mp3" type="audio/mp3">
+                </audio>
+            </div>
+
+            <div id="list">
+                <ul>
+                    <li onclick="changeTrack('HTML, CSS, JS\Music Player App\Bruno Mars - Just the Way You Are.mp3', this)">Bruno Mars : Just the Way You Are</li>
+                    <li onclick="changeTrack('HTML, CSS, JS\Music Player App\Bruno Mars - Leave the Door Open.mp3', this)">Bruno Mars : Leave the Door Open</li>
+                    <li onclick="changeTrack('HTML, CSS, JS\Music Player App\Bruno Mars - Locked Out Of Heaven.mp3', this)">Bruno Mars : Locked Out Of Heaven</li>
+                </ul>
+            </div>
+
+            <div id="progressionBar">
+                <div id="progress"></div>
+            </div>
+        
+            <div id="buttons">
+                <button id="previous" onclick="togglePrevious">previous</button>
+                <button id="play" onclick="togglePlayPause">play</button>
+                <button id="next" onclick="toggleNext">next</button>
+            </div>
+        </div>
+    </body>
+
+</html> 
