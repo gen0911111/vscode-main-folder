@@ -10,25 +10,25 @@ def computerChoice():
 
 def conclusionMaker (pc, user):
     if pc == selection[0] and user == selection[0]:
-        print("tie")
+        return "tie"
     elif pc == selection[0] and user == selection[1]:
-        print("you lose")
+        return "you lose"
     elif pc == selection[0] and user == selection[2]:
-        print("you win")
+        return "you win"
     elif pc == selection[1] and user == selection[1]:
-        print("tie")
+        return "tie"
     elif pc == selection[1] and user == selection[0]:
-        print("you win")
+        return "you win"
     elif pc == selection[1] and user == selection[2]:
-        print("you lose")
+        return "you lose"
     elif pc == selection[2] and user == selection[2]:
-        print("tie")
+        return "tie"
     elif pc == selection[2] and user == selection[0]:
-        print("you lose")
+        return "you lose"
     elif pc == selection[2] and user == selection[1]:
-        print("you win")
+        return "you win"
     else:
-        print("error")
+        return "error"
 
 
 frame = t.Tk()
@@ -38,10 +38,11 @@ welcomeMSG = t.Label(frame, text="Welcome to Rock Scissor Papers!")
 welcomeMSG.pack(pady=10)
 
 def btnPressed(user):
-    computerOutput.config(text=f"Computer Chose:{computerChoice()}")
+    pc_choice = computerChoice()
+    computerOutput.config(text=f"Computer Chose : {pc_choice}")
 
-    cm = conclusionMaker(computerChoice(), user)
-    conclusion.config(text=f"result is:{cm}")
+    cm = conclusionMaker(pc_choice, user)
+    conclusion.config(text=f"result is : {cm}", fg="red")
 
 Rockbtn = t.Button(frame, text="Rock", command=lambda:btnPressed("Rock"))
 Rockbtn.pack(pady=7)
