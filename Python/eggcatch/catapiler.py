@@ -19,7 +19,7 @@ leaf.shape("triangle")
 
 gameIsStarted = False
 textTurtle = t.Turtle()
-textTurtle.write("Press w to start", align="center", font=("Arial", "Bold", 12))
+textTurtle.write("Press q to start", align="center", font=("Arial", "Bold", 12))
 textTurtle.hideturtle()
 
 scoreTurtle = t.Turtle()
@@ -62,6 +62,29 @@ def gameLogic():
         return
     gameIsStarted = True
 
+    SCORE = 0
+    textTurtle.clear()
+
+    catapiler.speed = 3
+    catapiler.showturtle()
+    catapiler.length =3
+    catapiler.shapesize(1, catapiler.length,1)
+    scoreDisplay(SCORE)
+    spawnLeaf()
+
+    while True:
+        catapiler.forward(catapiler.speed())
+        if catapiler.distance(leaf) < 20:
+            spawnLeaf()
+            SCORE += 10
+            scoreDisplay(SCORE)
+            catapiler.length +=1
+            catapiler.speed +=1
+            catapiler.shapesize(1, catapiler.length,1)
+        if hitWall():
+            gameover()
+            break
+
 def up():
     if catapiler.heading() == 0 or catapiler.heading() == 180:
         catapiler.setheading(90)
@@ -77,3 +100,11 @@ def left():
 def right():
     if catapiler.heading() == 90 or catapiler.heading() == 270:
         catapiler.setheading(0)
+
+t.onkey(gameLogic, "q")
+t.onkey(up, "w")
+t.onkey(down, "s")
+t.onkey(left, "a")
+t.onkey(right, "d")
+t.listen()
+t.mainloop()
