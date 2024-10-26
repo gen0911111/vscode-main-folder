@@ -4,22 +4,22 @@ import turtle as t
 t.bgcolor("lightblue")
 
 catapiler = t.Turtle()
-catapiler.shape("square")
+catapiler.shape("arrow")
 catapiler.color("purple")
 catapiler.speed(0)
 catapiler.penup()
 catapiler.hideturtle()
 
 leaf = t.Turtle()
-leaf.color("lightgreen")
+leaf.color("green")
 leaf.speed()
 leaf.penup()
 leaf.hideturtle()
-leaf.shape("triangle")
+leaf.shape("turtle")
 
 gameIsStarted = False
 textTurtle = t.Turtle()
-textTurtle.write("Press q to start", align="center", font=("Arial", "Bold", 12))
+textTurtle.write("Press q to start", align="center", font=("Arial", 12, "bold"))
 textTurtle.hideturtle()
 
 scoreTurtle = t.Turtle()
@@ -32,7 +32,7 @@ def scoreDisplay(score):
     x = (t.window_width()/2)-50
     y = (t.window_height()/2)-50
     scoreTurtle.setpos(x, y)
-    scoreTurtle.write(str(score), align="right", font=("Arial", 12))
+    scoreTurtle.write(str(score), align="right", font=("Arial", 30))
 
 def spawnLeaf():
     leaf.hideturtle()
@@ -73,7 +73,7 @@ def gameLogic():
     spawnLeaf()
 
     while True:
-        catapiler.forward(catapiler.speed())
+        catapiler.forward(catapiler.speed)
         if catapiler.distance(leaf) < 20:
             spawnLeaf()
             SCORE += 10
